@@ -1,0 +1,314 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background-image: url(https://static.vecteezy.com/ti/gratis-vektor/p1/533697-bunte-hande-druckt-hintergrund-vektor.jpg);
+  margin: 0;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+h1 {
+  text-align: center;
+  color: black;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+h1 {
+  text-align: center;
+  color: #2c3e50;
+  font-size: 2.5em;
+  
+  /* Breiter weißer Balken */
+  background-color: white;
+  padding: 20px;
+  margin: 0 0 20px 0;                  /* Geht über die ganze Breite */
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+
+
+.datum {
+  text-align: center;
+  color: #2c3e50;
+  font-size: 1.67em;
+  margin-bottom: 100px;
+  font-style: italic;
+  /* Passend zur Überschrift */
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 8px 20px;
+  border-radius: 10px;
+}
+
+.zeitplan {
+  max-width: 800px;
+  margin: 0 auto;
+  background: black;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  border-collapse: collapse;
+}
+
+/* Spalten im Kopf definieren */
+thead th:nth-child(1) { width: 150px; }   thead th:nth-child(2) { width: 330px; } 
+thead th:nth-child(3) { width: 150px; }
+
+
+thead {
+  background: #2c3e50;
+  color: white;
+}
+
+th {
+  padding: 15px;
+  text-align: left;
+  font-size: 1.1em;
+}
+
+td {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+/* Abwechselnde Zeilenfarbe (nur klickbare Zeilen) */
+.klickzeile:nth-child(4n+1) {
+  background: white;
+}
+
+.klickzeile:nth-child(4n+3) {
+  background: #f8f9fa;
+}
+
+/* Die klickbaren Zeilen */
+.klickzeile {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.klickzeile:hover {
+  background: #e3f2fd;
+}
+
+.klickzeile:active {
+  background: #bbdefb;
+}
+
+.klickzeile td:first-child::before {
+  content: " + ";
+  color: #667eea;
+  font-size: 1.67em;
+}
+
+/* Die versteckten Info-Zeilen */
+.info {
+  display: none;
+}
+
+.info td {
+  padding: 0;
+  border-bottom: 2px solid #667eea;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.info-inhalt {
+  background: #f0f4ff;
+  padding: 15px 20px;
+  border-left: 4px solid #667eea;
+  margin: 0;
+  animation: aufklappen 0.5s ease;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+@keyframes aufklappen {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Pausen hervorheben */
+.pause {
+  font-weight: bold;
+  color: #856404;
+}
+
+/* Erste Spalte (Uhrzeit) */
+td:first-child {
+  font-weight: regular;
+  color: #2c3e50;
+  white-space: nowrap;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.8em;
+  }
+  
+  th, td {
+    padding: 10px;
+    font-size: 0.9em;
+  }
+}
+
+.info-tabelle {
+  width: 100%;
+  margin-top: 10px;
+  border-collapse: collapse;
+}
+
+.info-tabelle td {
+  padding: 5px 8px;
+  border-bottom: 1px solid #ddd;
+  font-size: 0.95em;
+}
+
+.info-tabelle td:first-child {
+  font-weight: bold;
+  color: #555;
+  width: 150px;                    /* Breite der ersten Spalte */
+  white-space: nowrap;             /* Kein Zeilenumbruch */
+}
+
+.info-tabelle td:last-child {
+  color: #333;
+}
+
+/* Letzte Zeile ohne Rahmen */
+.info-tabelle tr:last-child td {
+  border-bottom: none;
+}
+
+/* Hover-Effekt */
+.info-tabelle tr:hover {
+  background-color: rgba(102, 126, 234, 0.05);
+}
+
+
+/* ===== HANDY-OPTIMIERUNG ===== */
+
+/* Tablet (unter 768px Breite) */
+@media (max-width: 768px) {
+  
+  body {
+    padding: 10px;                     /* Weniger Rand */
+  }
+  
+  h1 {
+    font-size: 1.8em;                  /* Kleinere Überschrift */
+    padding: 10px 20px;
+  }
+  
+  .datum {
+    font-size: 1em;
+    padding: 6px 15px;
+  }
+  
+  /* Tabelle scrollbar machen statt gequetscht */
+  .zeitplan {
+    max-width: 100%;
+    font-size: 0.9em;
+    display: block;
+    overflow-x: auto;                  /* Seitlich scrollen bei Bedarf */
+    -webkit-overflow-scrolling: touch; /* Sanftes Scrollen auf iOS */
+  }
+  
+  /* Spaltenbreiten anpassen */
+
+  thead th:nth-child(2) { width: 100px; }   /* Uhrzeit */
+  thead th:nth-child(3) { width: auto; }    /* Aktivität flexibel */
+  thead th:nth-child(4) { width: 70px; }    /* Ort */
+  
+  th, td {
+    padding: 10px 8px;                 /* Weniger Innenabstand */
+    font-size: 0.85em;
+  }
+  
+  .plus-spalte {
+    font-size: 1.2em;
+  }
+}
+
+/* Handy (unter 480px Breite) */
+@media (max-width: 480px) {
+  
+  h1 {
+    font-size: 1.5em;
+    padding: 8px 15px;
+    border-radius: 10px;
+  }
+  
+  .datum {
+    font-size: 0.9em;
+    margin-bottom: 20px;
+  }
+  
+  th, td {
+    padding: 8px 5px;
+    font-size: 0.8em;
+  }
+  
+  /* Info-Inhalt anpassen */
+  .info-inhalt {
+    padding: 10px 12px;
+    font-size: 0.85em;
+  }
+  
+  /* Mini-Tabelle in der Info-Box */
+  .info-tabelle td {
+    padding: 3px 5px;
+    font-size: 0.8em;
+  }
+  
+  .info-tabelle td:first-child {
+    width: 100px;
+  }
+  
+  /* Nicht-klickbare Zeilen */
+  .nicht-klickbar {
+    font-size: 0.9em;
+  }
+}
+
+/* Bild in der Info-Box */
+.info-bild {
+  max-width: 100%;                   /* Nie breiter als die Box */
+  height: auto;                      /* Proportionen erhalten */
+  display: block;                    /* Zentrierbar machen */
+  margin: 15px auto;                 /* Zentriert mit Abstand */
+  border-radius: 8px;                /* Abgerundete Ecken */
+  border: 2px solid #ddd;            /* Dezenter Rahmen */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);  /* Leichter Schatten */
+}
+
+/* Bildunterschrift */
+.bild-unterschrift {
+  text-align: center;
+  font-size: 0.85em;
+  color: #666;
+  font-style: italic;
+  margin-top: 5px;
+}
+
+@media (max-width: 480px) {
+  .info-bild {
+    max-width: 100%;
+    margin: 10px auto;
+  }
+  
+  .lageplan {
+    flex-direction: column;        /* Untereinander statt nebeneinander */
+    gap: 5px;
+  }
+}
